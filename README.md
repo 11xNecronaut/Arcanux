@@ -1,10 +1,6 @@
 # Arcanux
 
 <p align="center">
-  <img src="assets/logo.png" alt="Arcanux Logo" width="180"/>
-</p>
-
-<p align="center">
   <strong>Post-Quantum Secure Data Hiding Platform</strong><br>
   A cross-platform application that combines post-quantum cryptography and steganography to securely encrypt and conceal sensitive information inside multimedia files.
 </p>
