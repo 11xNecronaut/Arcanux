@@ -1,5 +1,4 @@
 # Arcanux
-# Arcanux
 
 <p align="center">
   <img src="assets/logo.png" alt="Arcanux Logo" width="180"/>
