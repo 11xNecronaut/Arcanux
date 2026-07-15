@@ -48,65 +48,38 @@ This layered approach provides:
 
 ---
 
-# Architecture
 
-```
+# Architecture 
 
-```
-                User
-
-                  │
-
-                  ▼
-
-        Select Secret File
-
-                  │
-
-                  ▼
-
-    Post-Quantum Encryption
-
-                  │
-
-                  ▼
-
-      Generate Ciphertext
-
-                  │
-
-                  ▼
-
-     Steganography Engine
-
-                  │
-
-                  ▼
-
-      Carrier Image File
-
-                  │
-
-                  ▼
-
-       Secure Distribution
-
-                  │
-
-                  ▼
-
-      Extract Ciphertext
-
-                  │
-
-                  ▼
-
-     Post-Quantum Decryption
-
-                  │
-
-                  ▼
-
-         Original File
-```
+    Secret File
+      │
+      ▼
+    ML-KEM-768
+      │
+      ▼
+    Shared Secret
+      │
+      ▼  
+    HKDF
+      │
+      ▼
+    ChaCha20-Poly1305
+      │
+      ▼
+    Encrypted Container
+      │
+      ▼
+    LSB Steganography
+      │
+      ▼
+    Carrier Image
+      │
+      ▼
+    Extraction
+      │
+      ▼
+    ChaCha20-Poly1305
+      │
+      ▼
+    Recovered File
 
