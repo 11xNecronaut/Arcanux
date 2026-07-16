@@ -7,6 +7,27 @@
 
 ---
 
+## Table of Contents
+
+- Overview
+- Features
+- Architecture
+- Cryptographic Workflow
+- Threat Model
+- Technology Stack
+- Project Structure
+- Installation
+- Usage
+- Security Design
+- Current Limitations
+- Roadmap
+- Testing
+- Contributing
+- License
+
+---
+
+
 ## Overview
 
 Arcanux is a desktop application developed to provide an additional layer of security beyond traditional encryption by combining **post-quantum cryptography** with **digital steganography**.
