@@ -1,0 +1,269 @@
+# Arcanux
+
+> **Post-Quantum Secure Data Hiding Platform**
+
+![Status](https://img.shields.io/badge/status-MVP-blue)
+![Python](https://img.shields.io/badge/Python-3.12+-3776AB)
+![GUI](https://img.shields.io/badge/GUI-PySide6-41CD52)
+![License](https://img.shields.io/badge/license-MIT-green)
+
+---
+
+## Table of Contents
+
+- Overview
+- Features
+- Architecture
+- Cryptographic Workflow
+- Threat Model
+- Technology Stack
+- Project Structure
+- Installation
+- Usage
+- Security Design
+- Current Limitations
+- Roadmap
+- Testing
+- Contributing
+- License
+
+---
+
+# Overview
+
+Arcanux is a desktop application that combines **post-quantum cryptography** with **image steganography** to protect sensitive data.
+
+Rather than storing encrypted files directly, Arcanux encrypts a payload using a post-quantum key encapsulation mechanism and authenticated encryption, then embeds the encrypted container inside a carrier image using Least Significant Bit (LSB) steganography.
+
+The project is designed as an educational and engineering-focused implementation that emphasizes modular architecture, accurate threat modeling, and modern cryptographic practices.
+
+---
+
+# Features
+
+## Current (MVP)
+
+- Cross-platform desktop application
+- PySide6 graphical interface
+- ML-KEM-768 (Kyber) key encapsulation
+- HKDF key derivation
+- ChaCha20-Poly1305 authenticated encryption
+- Encrypt-then-Embed architecture
+- PNG/BMP image steganography using LSB
+- Secure extraction workflow
+- Secure decryption workflow
+- Modular codebase
+
+## Planned
+
+- WAV audio steganography
+- Randomized LSB embedding
+- Batch processing
+- Additional PQC algorithms
+- Improved steganalysis resistance
+
+---
+
+# Architecture
+
+```text
+Secret File
+    │
+    ▼
+ML-KEM-768
+    │
+    ▼
+Shared Secret
+    │
+    ▼
+HKDF
+    │
+    ▼
+ChaCha20-Poly1305
+    │
+    ▼
+Encrypted Container
+    │
+    ▼
+LSB Embedding
+    │
+    ▼
+Carrier Image
+
+Recovery
+
+Carrier Image
+    │
+    ▼
+LSB Extraction
+    │
+    ▼
+ChaCha20-Poly1305
+    │
+    ▼
+Recovered File
+```
+
+---
+
+# Threat Model
+
+Designed to protect against:
+
+- Unauthorized access to confidential files
+- Passive interception of transmitted media
+- Casual inspection of carrier images
+
+Not designed to protect against:
+
+- Compromised host systems
+- Advanced forensic steganalysis
+- Side-channel attacks
+- Private key compromise
+
+---
+
+# Technology Stack
+
+| Component | Technology |
+|------------|------------|
+| Language | Python 3.12+ |
+| GUI | PySide6 |
+| PQC | ML-KEM-768 (Kyber) |
+| AEAD | ChaCha20-Poly1305 |
+| KDF | HKDF |
+| Steganography | Least Significant Bit (LSB) |
+| Image Processing | Pillow |
+| Packaging | PyInstaller |
+
+---
+
+# Project Structure
+
+```text
+Arcanux/
+├── README.md
+├── LICENSE
+├── requirements.txt
+├── .gitignore
+├── docs/
+├── assets/
+│   └── screenshots/
+├── src/
+│   ├── crypto/
+│   ├── gui/
+│   ├── steganography/
+│   ├── utils/
+│   └── main.py
+└── tests/
+```
+
+---
+
+# Installation
+
+```bash
+git clone https://github.com/<your-username>/Arcanux.git
+cd Arcanux
+python -m venv .venv
+source .venv/bin/activate    # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python src/main.py
+```
+
+---
+
+# Usage
+
+1. Launch Arcanux.
+2. Select a carrier image.
+3. Select the file to protect.
+4. Generate or load keys.
+5. Encrypt the payload.
+6. Embed the encrypted container.
+7. Save the generated image.
+
+To recover data:
+
+1. Open the carrier image.
+2. Extract the embedded container.
+3. Decrypt using the required key.
+4. Recover the original file.
+
+---
+
+# Security Design
+
+Arcanux follows an **Encrypt-then-Embed** workflow.
+
+- ML-KEM-768 establishes a shared secret.
+- HKDF derives the symmetric encryption key.
+- ChaCha20-Poly1305 encrypts and authenticates the payload.
+- LSB steganography conceals the encrypted container within the carrier image.
+
+This separation ensures confidentiality and integrity before steganographic embedding.
+
+---
+
+# Testing
+
+Planned testing includes:
+
+- Encryption/decryption correctness
+- Round-trip embedding and extraction
+- Invalid input handling
+- Corrupted carrier detection
+- GUI workflow validation
+
+Performance metrics and benchmarks will be published once implemented.
+
+---
+
+# Current Limitations
+
+- Image steganography only (PNG/BMP)
+- No audio support in MVP
+- No digital signatures
+- No cloud synchronization
+- Educational/research implementation
+
+---
+
+# Roadmap
+
+- [ ] WAV audio support
+- [ ] Randomized embedding
+- [ ] Drag-and-drop UI
+- [ ] Batch processing
+- [ ] Additional PQC algorithms
+- [ ] Comprehensive benchmark suite
+
+---
+
+# Contributing
+
+Contributions, bug reports, and suggestions are welcome. Please open an issue before proposing major architectural changes.
+
+---
+
+# License
+
+Released under the MIT License.
+
+---
+
+# Author
+
+**Caeser**
+
+Cybersecurity • Security Engineering • Applied Cryptography
+
+GitHub: https://github.com/<your-username>
+
+LinkedIn: https://linkedin.com/in/<your-profile>
+
+---
+
+# Acknowledgements
+
+This project explores the practical integration of post-quantum cryptography and steganography in a desktop application while emphasizing sound engineering practices, transparent threat modeling, and maintainable software design
