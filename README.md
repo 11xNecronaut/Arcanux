@@ -12,7 +12,6 @@
 - Overview
 - Features
 - Architecture
-- Cryptographic Workflow
 - Threat Model
 - Technology Stack
 - Project Structure
@@ -42,11 +41,10 @@ The project focuses on confidentiality, secure data transmission, usability, and
 
 - Post-Quantum Cryptography integration
 - Encrypt-then-Embed architecture
-- Image Steganography
+- Image Steganography 
 - Cross-platform graphical interface
 - Automatic encryption and embedding workflow
 - Secure extraction and decryption
-- Multiple file type support
 - File integrity validation
 - Error handling and recovery mechanisms
 - Simple user-friendly interface
